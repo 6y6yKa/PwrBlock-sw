@@ -1,0 +1,9 @@
+build/
+.cache/
+bin/
+
+# CubeMX generated extra files
+src/bsp/periph_setup/CMakePresets.json
+src/bsp/periph_setup/cmake
+src/bsp/periph_setup/.mxproject
+src/bsp/periph_setup/STM32G0B1XX_FLASH.ld

@@ -1,0 +1,11 @@
+CompileFlags:                     # Tweak the parse settings
+  Add: -ferror-limit=0            # unlimited error list
+  Remove:
+    - -mfp16-format=*             # strip unsupported flag
+    - -fno-reorder-functions      # strip unsupported flag
+
+# Disable clangd LSP in third-party dirs
+If:
+  PathMatch: lib/.*
+Diagnostics:
+  Suppress: "*"

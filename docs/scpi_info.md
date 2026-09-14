@@ -1,0 +1,45 @@
+# SCPI
+
+List of supported SCPI commands:
+
+- System:
+  - `*IDN?` - identification query.
+  - `SYSTem:CAPability?` - device capability query.
+  - `SYSTem:VERSion?` - SCPI protocol version query, example output "1999.0".
+  - `SYSTem:ERRor:COUNt?` - query for the number of errors in the device error queue.
+  - `SYSTem:ERRor[:NEXT]?` - query to retrieve the next error from the device error queue; after retrieval, this message is removed from the error queue.
+- Saving and restoring state:
+  - `*SAV {1-4}` - saves the unit state (output voltage and current) to the selected memory cell.
+  - `*RCL {1-4}` - restores the unit state (output voltage and current) from the selected memory cell.
+- Output state control:
+  - `OUTPut[:STATe] {OFF | ON | 0 | 1}` - turns the output on and off.
+  - `OUTPut[:STATe]?` - output state query.
+- Source control:
+  - `[SOURce]:CURRent[:LEVel][:IMMediate][:AMPLitude] {<Current>}` - sets the output-current limit.
+  - `[SOURce]:CURRent[:LEVel][:IMMediate][:AMPLitude]? [MIN | MAX]` - current setpoint, or the allowed minimum/maximum value.
+  - `[SOURce]:VOLTage[:LEVel][:IMMediate][:AMPLitude] {<Voltage>}` - sets the output-voltage setpoint.
+  - `[SOURce]:VOLTage[:LEVel][:IMMediate][:AMPLitude]? [MIN | MAX]` - voltage setpoint, or the allowed minimum/maximum value.
+- Measurements:
+  - `MEASure[:SCALar]:VOLTage[:DC]?` - measures voltage on the selected channel (in volts), example output "1.1".
+  - `MEASure[:SCALar]:CURRent[:DC]?` - measures current on the selected channel (in amperes), example output "1.1".
+  - `MEASure[:SCALar]:POWer[:DC]?` - measures output power on the selected channel (in watts), example output "1.1".
+  - `MEASure[:SCALar]:TEMPerature:SHUNt?` - measures the temperature of the current shunt chip in degrees Celsius, example output "50.1".
+  - `MEASure[:SCALar]:TEMPerature:TERMinal?` - measures the temperature of the NTC sensor on the output terminals in degrees Celsius, example output "50.1".
+- Overcurrent protection (OCP) control:
+  - `[SOURce]:CURRent:PROTection:STATe {OFF | ON | 0 | 1}` - turns overcurrent protection on and off.
+  - `[SOURce]:CURRent:PROTection:STATe?` - overcurrent protection state query.
+  - `[SOURce]:CURRent:PROTection:LEVel {<Current>}` - sets the output current (in amperes) for overcurrent protection mode.
+  - `[SOURce]:CURRent:PROTection:LEVel?` - query for the current overcurrent protection setpoint value.
+  - `[SOURce]:CURRent:PROTection:CLEar` - clears the OCP flag in the overcurrent protection control subsystem.
+- Calibration constants control:
+  - `CALibration:SECUre:STATe {OFF | ON | 0 | 1}` - enables and disables the write lock for calibration constants.
+  - `CALibration:SECUre:STATe?` - write lock state query for calibration constants.
+  - `CALibration:VOLTage:SLOPe {<Slope>}` - sets the slope of the linear approximation for the voltage setpoint function.
+  - `CALibration:VOLTage:SLOPe?` - query for the current slope value of the linear approximation for the voltage setpoint function.
+  - `CALibration:VOLTage:OFFSet {<Offset>}` - sets the offset of the linear approximation for the voltage setpoint function. The `Offset` parameter is in mV.
+  - `CALibration:VOLTage:OFFSet?` - query for the current offset of the linear approximation for the voltage setpoint function, in mV.
+  - `CALibration:CURRent:SLOPe {<Slope>}` - sets the slope of the linear approximation for the current setpoint function.
+  - `CALibration:CURRent:SLOPe?` - query for the current slope value of the linear approximation for the current setpoint function.
+  - `CALibration:CURRent:OFFSet {<Offset>}` - sets the offset of the linear approximation for the current setpoint function. The `Offset` parameter is in mA.
+  - `CALibration:CURRent:OFFSet?` - query for the current offset of the linear approximation for the current setpoint function, in mA.
+  - `CALibration:STORe` - command to save the current values of all calibration constants to non-volatile memory.

@@ -1,0 +1,49 @@
+// See https://aka.ms/vscode-remote/devcontainer.json for format details.
+{
+    "name": "gcc-arm",
+    "build": {
+        "dockerfile": "../Dockerfile",
+    },
+    // Add the IDs of any extensions you want installed in the array below.
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "spmeesseman.vscode-taskexplorer@2.13.14",
+                "ms-vscode.cmake-tools",
+                "cheshirekow.cmake-format",
+                "marus25.cortex-debug",
+                "mcu-debug.debug-tracker-vscode",
+                "IBM.output-colorizer",
+                "xaver.clang-format",
+                "llvm-vs-code-extensions.vscode-clangd",
+                "cschlosser.doxdocgen",
+                "mhutchie.git-graph"
+            ],
+            "settings": {
+                "terminal.integrated.defaultProfile.linux": "bash",
+                "terminal.integrated.profiles.linux": {
+                    "bash": {
+                        "path": "bash",
+                        "icon": "terminal-bash"
+                    }
+                },
+                "extensions.autoUpdate": "off",
+                "extensions.autoCheckUpdates": false
+            }
+        }
+    },
+    "runArgs": [
+        // Bypass USB bus to container
+        "-v",
+        "/dev/bus/usb:/dev/bus/usb",
+        // Bypass dev dir to view any devices of host machine
+        "-v",
+        "/dev:/dev:rslave",
+        // Container access to USB devices via cgroups
+        "--device-cgroup-rule=c 189:* rmw", // For USB-devices (i.e. ST-Link)
+        "--device-cgroup-rule=c 188:* rmw", // For ttyUSB* (i.e. USB-UART CH340, CP2102)
+        "--device-cgroup-rule=c 166:* rmw" // For ttyACM* (i.e. ST-Link VCP, Arduino)
+    ],
+    // After container creation install some software for working in IDE
+    "onCreateCommand": "sudo apt-get update && sudo apt-get -y install usbutils clang-tidy clang-format clangd openocd gdb-multiarch cmake-format python3 python3-pip"
+}

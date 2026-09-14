@@ -1,0 +1,55 @@
+{
+    // Editor common settings
+    "files.insertFinalNewline": true,
+    "files.trimFinalNewlines": true,
+    "files.trimTrailingWhitespace": true,
+    "editor.formatOnSave": true,
+    "editor.formatOnSaveMode": "file",
+    // File extension specific settings
+    "markdown.copyFiles.destination": {
+        "*": "${documentWorkspaceFolder}/docs/img/${fileName}"
+    },
+    "[cpp]": {
+        "editor.defaultFormatter": "xaver.clang-format"
+    },
+    "[c]": {
+        "editor.defaultFormatter": "xaver.clang-format"
+    },
+    "[cmake]": {
+        "editor.defaultFormatter": "cheshirekow.cmake-format",
+    },
+    "cmakeFormat.exePath": "cmake-format",
+    // Debugger settings
+    "cortex-debug.gdbPath": "/usr/bin/gdb-multiarch",
+    "cortex-debug.openocdPath": "/usr/bin/openocd",
+    "cortex-debug.armToolchainPath": "/opt/gcc-arm-none-eabi/bin",
+    "cortex-debug.variableUseNaturalFormat": true,
+    // Clangd extention to trigger fast LSP for one-file lint and code completion
+    "clangd.enable": true,
+    "clangd.detectExtensionConflicts": false,
+    "clangd.arguments": [
+        "--compile-commands-dir=build",
+        "--cross-file-rename",
+        "--clang-tidy",
+        "-j=12",
+        "--background-index",
+        "--query-driver=/opt/gcc-arm-none-eabi/bin/arm-none-eabi-*",
+        "--pch-storage=memory",
+        "--header-insertion=never"
+    ],
+    "clangd.onConfigChanged": "restart",
+    "clangd.restartAfterCrash": true,
+    "clangd.enableCodeCompletion": true,
+    // VS Code Project navigation filter
+    "git.detectSubmodules": false,
+    "git.autoRepositoryDetection": "openEditors",
+    "explorer.excludeGitIgnore": false,
+    "files.exclude": {
+        "**/.git": true,
+        "**/.svn": true,
+        "**/.hg": true,
+        "**/.DS_Store": true,
+        "**/Thumbs.db": true,
+        "/lib**": true,
+    },
+}

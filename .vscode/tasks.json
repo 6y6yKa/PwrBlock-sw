@@ -1,0 +1,114 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "Clean",
+			"type": "shell",
+			"group": "build",
+			"command": "make clean",
+			"problemMatcher": []
+		},
+		{
+			"label": "Build Release",
+			"type": "shell",
+			"group": "build",
+			"command": "make build CMAKE_PRESET=release-tmc",
+			"problemMatcher": {
+				"fileLocation": "absolute",
+				"pattern": [
+					{
+						"regexp": "^(.*):(\\d+):(\\d+):\\s+(warning|error):\\s+(.*)\\s+\\[([^\\]]+)\\]",
+						"file": 1,
+						"line": 2,
+						"column": 3,
+						"severity": 4,
+						"message": 5,
+						"code": 6
+					},
+				],
+				"severity": "warning",
+				"source": "gcc",
+			},
+		},
+		{
+			"label": "Build Debug",
+			"type": "shell",
+			"group": "build",
+			"command": "make build CMAKE_PRESET=debug-tmc",
+			"problemMatcher": {
+				"fileLocation": "absolute",
+				"pattern": [
+					{
+						"regexp": "^(.*):(\\d+):(\\d+):\\s+(warning|error):\\s+(.*)\\s+\\[([^\\]]+)\\]",
+						"file": 1,
+						"line": 2,
+						"column": 3,
+						"severity": 4,
+						"message": 5,
+						"code": 6
+					},
+				],
+				"severity": "warning",
+				"source": "gcc",
+			},
+		},
+		{
+			"label": "Flash",
+			"type": "shell",
+			"command": "make flash",
+		},
+		{
+			"label": "Lint Sources",
+			"type": "shell",
+			"command": "make lint",
+			"problemMatcher": {
+				"fileLocation": "absolute",
+				"pattern": [
+					{
+						"regexp": "^(.*src.*):(\\d+):(\\d+):\\s+(warning|error):\\s+(.*)\\s+\\[([^\\]]+)\\]",
+						"file": 1,
+						"line": 2,
+						"column": 3,
+						"severity": 4,
+						"message": 5,
+						"code": 6
+					},
+				],
+				"severity": "warning",
+				"owner": "prj-clang-tidy",
+				"source": "prj-clang-tidy",
+			},
+			"presentation": {
+				"echo": true,
+				"reveal": "always",
+				"focus": false,
+				"panel": "shared",
+				"showReuseMessage": true,
+				"clear": true,
+				"revealProblems": "onProblem",
+			},
+		},
+		{
+			"label": "Lint Result Clear",
+			"type": "shell",
+			"command": "echo 'clear linter result'",
+			"problemMatcher": {
+				"fileLocation": "absolute",
+				"pattern": [
+					{
+						"regexp": "^(.*src.*):(\\d+):(\\d+):\\s+(warning|error):\\s+(.*)\\s+\\[([^\\]]+)\\]",
+						"file": 1,
+						"line": 2,
+						"column": 3,
+						"severity": 4,
+						"message": 5,
+						"code": 6
+					},
+				],
+				"severity": "warning",
+				"owner": "prj-clang-tidy",
+				"source": "prj-clang-tidy",
+			},
+		},
+	]
+}

@@ -1,0 +1,27 @@
+[submodule "lib/tinyusb"]
+	path = lib/tinyusb
+	url = https://github.com/hathach/tinyusb.git
+[submodule "lib/scpi_parser"]
+	path = lib/scpi_parser
+	url = https://github.com/j123b567/scpi-parser.git
+[submodule "lib/hal/cmsis_6"]
+	path = lib/hal/cmsis_6
+	url = https://github.com/ARM-software/CMSIS_6.git
+[submodule "lib/hal/stm32g0xx_hal_driver"]
+	path = lib/hal/stm32g0xx_hal_driver
+	url = https://github.com/STMicroelectronics/stm32g0xx-hal-driver.git
+[submodule "lib/hal/cmsis_device_g0"]
+	path = lib/hal/cmsis_device_g0
+	url = https://github.com/STMicroelectronics/cmsis-device-g0.git
+[submodule "lib/stm32_usbpd/core"]
+	path = lib/stm32_usbpd/core
+	url = https://github.com/STMicroelectronics/stm32-mw-usbpd-core.git
+[submodule "lib/stm32_usbpd/devices/stm32g0xx"]
+	path = lib/stm32_usbpd/devices/stm32g0xx
+	url = https://github.com/STMicroelectronics/stm32-mw-usbpd-device-g0.git
+[submodule "lib/cmsis_freertos"]
+	path = lib/cmsis_freertos
+	url = https://github.com/ARM-software/CMSIS-FreeRTOS.git
+[submodule "lib/stm32_usbpd/tracer"]
+	path = lib/stm32_usbpd/tracer
+	url = https://github.com/STMicroelectronics/stm32-util-usbpd-tracer-emb.git

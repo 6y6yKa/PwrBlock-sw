@@ -1,0 +1,85 @@
+Checks: [
+    -*,
+    misc-*,
+    -misc-include-cleaner,
+    modernize-*,
+    -modernize-macro-to-enum,
+    performance-*,
+    readability-*,
+    google-readability-casting,
+    bugprone-*,
+    -bugprone-easily-swappable-parameters,
+    clang-analyzer-*
+    concurrency-*,
+    linuxkernel-*,
+    cert-*,
+    clang-analyzer-*,
+    -clang-analyzer-security.insecureAPI.DeprecatedOrUnsafeBufferHandling,
+    -readability-identifier-naming,
+    -readability-magic-numbers,
+    -readability-convert-member-functions-to-static,
+    -readability-static-accessed-through-instance,
+    #dpm interface for PE contain a lot of mocks - early to add const modifier
+    -readability-non-const-parameter,
+    -modernize-use-trailing-return-type,
+]
+
+CheckOptions:
+  - key: readability-identifier-naming.ClassCase
+    value: CamelCase
+  - key: readability-identifier-naming.EnumCase
+    value: CamelCase
+  - key: readability-identifier-naming.EnumConstantCase
+    value: UPPER_CASE
+  - key: readability-identifier-naming.LocalVariableCase
+    value: lower_case
+  - key: readability-identifier-naming.LocalVariablePrefix
+    value: '_'
+  - key: readability-identifier-naming.MemberCase
+    value: lower_case
+  - key: readability-identifier-naming.PrivateMemberPrefix
+    value: '_'
+  - key: readability-identifier-naming.ProtectedMemberPrefix
+    value: '_'
+  - key: readability-identifier-naming.PublicMemberCase
+    value: lower_case
+  - key: readability-identifier-naming.MethodCase
+    value: lower_case
+  - key: readability-identifier-naming.PrivateMethodPrefix
+    value: '_'
+  - key: readability-identifier-naming.ProtectedMethodPrefix
+    value: '_'
+  - key: readability-identifier-naming.StructCase
+    value: CamelCase
+  - key: readability-identifier-naming.TypedefCase
+    value: CamelCase
+  - key: readability-identifier-naming.UsingCase
+    value: CamelCase
+  - key: readability-identifier-naming.NamespaceCase
+    value: lower_case
+  - key: readability-identifier-naming.GlobalConstantCase
+    value: UPPER_CASE
+  - key: readability-identifier-naming.MacroDefinitionCase
+    value: UPPER_CASE
+  - key: readability-identifier-naming.LocalConstantCase
+    value: UPPER_CASE
+  - key: readability-identifier-naming.LocalConstantPointerCase
+    value: lower_case
+  - key: readability-identifier-naming.GlobalConstantPointerCase
+    value: UPPER_CASE
+  - key: readability-identifier-naming.ParameterCase
+    value: CamelCase
+  - key: readability-identifier-naming.StaticConstantCase
+    value: UPPER_CASE
+  - key: readability-identifier-naming.ValueTemplateParameterCase
+    value: UPPER_CASE
+  - key: readability-identifier-naming.TypeTemplateParameterCase
+    value: CamelCase
+  - key: readability-identifier-naming.UnionCase
+    value: CamelCase
+  - key: performance-inefficient-vector-operation.VectorLikeClasses
+    value: '::etl::vector;::std::vector'
+  - key: readability-simplify-subscript-expr.Types
+    value: '::std::basic_string::std::basic_string_view;::std::vector;::std::array;::etl::basic_string;::etl::string_view;::etl::vector;::etl::array'
+  - key: aggressive-binary-operation-simplification
+    value: 'true'

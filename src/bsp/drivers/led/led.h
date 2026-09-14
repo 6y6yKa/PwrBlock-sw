@@ -1,0 +1,43 @@
+/*
+ * Copyright 2026 Everypin
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+#pragma once
+
+#include <stdint.h>
+
+typedef enum
+{
+    LED_COLOR_OFF,
+    LED_COLOR_RED,
+    LED_COLOR_GREEN,
+    LED_COLOR_BLUE,
+    LED_COLOR_YELLOW,
+    LED_COLOR_MAGENTA,
+} LedColor;
+
+/**
+ * @brief Init led driver.
+ *
+ */
+void led_init(void);
+
+/**
+ * @brief Set color for led.
+ *
+ * @param pos Address of led (in a row).
+ * @param color Color to set.
+ */
+void led_set(uint32_t pos, LedColor color);

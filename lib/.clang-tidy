@@ -1,0 +1,2 @@
+# Disable all checks for third-party lib (noise)
+Checks: '-*'
